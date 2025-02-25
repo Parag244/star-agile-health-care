@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: healthcare-app-deploy
   labels:
-    app: health-tech-app
+    app: healthcareapp-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: health-tech-app
+      app: healthcareapp-app
   template:
     metadata:
       labels:
-        app: health-tech-app
+        app: healthcareapp-app
     spec:
       containers:
       - name: healthcareapp-container
-        image: paragv14/health-tech-app
+        image: paragv14/healthcareapp-app
         ports:
         - containerPort: 8082
 ---
@@ -25,10 +25,10 @@ kind: Service
 metadata:
   name: healthcareapp-np-service
   labels:
-    app: health-tech-app
+    app: healthcareapp-app
 spec:
   selector:
-    app: health-tech-app
+    app: healthcareapp-app
 
   type: NodePort
   ports:
